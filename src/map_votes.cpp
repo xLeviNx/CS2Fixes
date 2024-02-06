@@ -17,6 +17,7 @@
  * this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "pch.h"
 #include "map_votes.h"
 #include "commands.h"
 #include "common.h"

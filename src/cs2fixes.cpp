@@ -17,6 +17,7 @@
  * this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "pch.h"
 #include "protobuf/generated/cstrike15_usermessages.pb.h"
 #include "protobuf/generated/usermessages.pb.h"
 #include "protobuf/generated/cs_gameevents.pb.h"
@@ -36,7 +37,6 @@
 #include "tier0/dbg.h"
 #include "cschemasystem.h"
 #include "plat.h"
-#include "entitysystem.h"
 #include "engine/igameeventsystem.h"
 #include "gamesystem.h"
 #include "ctimer.h"

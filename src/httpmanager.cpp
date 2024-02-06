@@ -25,12 +25,16 @@
  * code used.  Additionally, this exception is granted to all derivative works.
  */
 
+#include "pch.h"
 #include "httpmanager.h"
 #include "common.h"
 #include <string>
 
-extern ISteamHTTP* g_http;
+#include "vendor/nlohmann/json.hpp"
 
+using json = nlohmann::json;
+
+extern ISteamHTTP* g_http;
 HTTPManager g_HTTPManager;
 
 #undef strdup

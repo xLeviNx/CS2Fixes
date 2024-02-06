@@ -29,6 +29,18 @@ for sdk_name in MMSPlugin.sdks:
       os.path.join(builder.sourcePath, 'protobuf', 'generated'),
     ]
 
+    pch_builder = cxx.PrecompiledHeaders('pch', source_type = 'c++')
+    pch_builder.compiler = binary.compiler
+    pch_builder.sources += [
+      'string.h',
+      'eiface.h',
+      'entitysystem.h'
+    ]
+
+    pch = builder.Add(pch_builder)
+
+    binary.compiler.cxxincludes += [pch]
+
     target_folder = 'Debug' if builder.options.debug else 'Release'
     target_protobuf = 'libprotobufd' if builder.options.debug else 'libprotobuf'
 

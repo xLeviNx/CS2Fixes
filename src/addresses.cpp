@@ -17,6 +17,7 @@
  * this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "pch.h"
 #include "addresses.h"
 #include "utils/module.h"
 #include "gameconfig.h"

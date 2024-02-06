@@ -19,6 +19,7 @@
 
 #include "common.h"
 #include "KeyValues.h"
+#include "pch.h"
 #include "commands.h"
 #include "ctimer.h"
 #include "eventlistener.h"

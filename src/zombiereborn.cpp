@@ -17,6 +17,7 @@
  * this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "pch.h"
 #include "commands.h"
 #include "utils/entity.h"
 #include "playermanager.h"

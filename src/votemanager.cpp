@@ -17,6 +17,7 @@
  * this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "pch.h"
 #include "votemanager.h"
 #include "commands.h"
 #include "playermanager.h"
@@ -497,10 +498,10 @@ CON_COMMAND_CHAT(extendsleft, "- Display amount of extends left for the current 
 	switch (g_iExtendsLeft)
 	{
 	case 0:
-		strcpy(message, "There are no extends left.");
+		V_strcpy(message, "There are no extends left.");
 		break;
 	case 1:
-		strcpy(message, "There's 1 extend left");
+		V_strcpy(message, "There's 1 extend left");
 		break;
 	default:
 		V_snprintf(message, sizeof(message), "There are %i extends left.", g_iExtendsLeft);

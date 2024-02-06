@@ -1,3 +1,4 @@
+#include "pch.h"
 #include "gameconfig.h"
 #include "addresses.h"
 
@@ -17,7 +18,7 @@ bool CGameConfig::Init(IFileSystem *filesystem, char *conf_error, int conf_error
 {
 	if (!m_pKeyValues->LoadFromFile(filesystem, m_szPath.c_str(), nullptr))
 	{
-		snprintf(conf_error, conf_error_size, "Failed to load gamedata file");
+		V_snprintf(conf_error, conf_error_size, "Failed to load gamedata file");
 		return false;
 	}
 
@@ -60,7 +61,7 @@ bool CGameConfig::Init(IFileSystem *filesystem, char *conf_error, int conf_error
 	}
 	else
 	{
-		snprintf(conf_error, conf_error_size, "Failed to find game: %s", m_szGameDir.c_str());
+		V_snprintf(conf_error, conf_error_size, "Failed to find game: %s", m_szGameDir.c_str());
 		return false;
 	}
 	return true;

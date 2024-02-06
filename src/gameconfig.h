@@ -2,7 +2,6 @@
 
 #include "KeyValues.h"
 
-#include <string>
 #include <unordered_map>
 
 class CModule;
