@@ -202,7 +202,7 @@ GAME_EVENT_F(player_hurt)
 
 	pPlayer->SetTotalDamage(pPlayer->GetTotalDamage() + pEvent->GetInt("dmg_health"));
 	pPlayer->SetTotalHits(pPlayer->GetTotalHits() + 1);
-	if (g_iGroanChance && pVictim->m_iTeamNum() == CS_TEAM_T && (rand() % g_iGroanChance) == 1)
+	//if (g_iGroanChance && pVictim->m_iTeamNum() == CS_TEAM_T && (rand() % g_iGroanChance) == 1)
 		pVictim->EmitSound("zr.amb.zombie_pain");
 }
 
