@@ -40,7 +40,7 @@ extern CGameEntitySystem *g_pEntitySystem;
 extern CGlobalVars *gpGlobals;
 extern CCSGameRules *g_pGameRules;
 extern IVEngineServer2* g_pEngineServer2;
-static float g_flMoanInterval = 30.f;
+//static float g_flMoanInterval = 30.f;
 
 extern int g_iRoundNum;
 
