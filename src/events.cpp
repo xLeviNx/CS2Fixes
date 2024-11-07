@@ -40,7 +40,7 @@ extern CGameEntitySystem *g_pEntitySystem;
 extern CGlobalVars *gpGlobals;
 extern CCSGameRules *g_pGameRules;
 extern IVEngineServer2* g_pEngineServer2;
-//static float g_flMoanInterval = 30.f;
+static float g_flMoanInterval = 30.f;
 
 extern int g_iRoundNum;
 
@@ -263,7 +263,12 @@ GAME_EVENT_F(round_start)
 		pPlayer->SetTotalHits(0);
 		pPlayer->SetTotalKills(0);
 	}
-new CTimer(g_flMoanInterval + (rand() % 5), false, false, [hPlayer]() { return ZR_MoanTimer(pPlayer); });
+	if (!pPlayer->IsAlive())
+		return g_flMoanInterval + (rand() % 5);
+
+	pPawn->EmitSound("zr.amb.zombie_voice_idle");
+
+	return g_flMoanInterval + (rand() % 5);
 }
 
 GAME_EVENT_F(round_end)
