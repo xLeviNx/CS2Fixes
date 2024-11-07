@@ -40,6 +40,7 @@ extern CGameEntitySystem *g_pEntitySystem;
 extern CGlobalVars *gpGlobals;
 extern CCSGameRules *g_pGameRules;
 extern IVEngineServer2* g_pEngineServer2;
+static float g_flMoanInterval = 30.f;
 
 extern int g_iRoundNum;
 
@@ -201,6 +202,8 @@ GAME_EVENT_F(player_hurt)
 
 	pPlayer->SetTotalDamage(pPlayer->GetTotalDamage() + pEvent->GetInt("dmg_health"));
 	pPlayer->SetTotalHits(pPlayer->GetTotalHits() + 1);
+	if (g_iGroanChance && pVictim->m_iTeamNum() == CS_TEAM_T && (rand() % g_iGroanChance) == 1)
+		pVictim->EmitSound("zr.amb.zombie_pain");
 }
 
 GAME_EVENT_F(player_death)
@@ -224,6 +227,9 @@ GAME_EVENT_F(player_death)
 		return;
 
 	pPlayer->SetTotalKills(pPlayer->GetTotalKills() + 1);
+	if (pVictim->m_iTeamNum() == CS_TEAM_T && g_ZRRoundState == EZRRoundState::POST_INFECTION)
+		pVictim->EmitSound("zr.amb.zombie_die");
+	
 }
 
 bool g_bFullAllTalk = false;
@@ -257,6 +263,7 @@ GAME_EVENT_F(round_start)
 		pPlayer->SetTotalHits(0);
 		pPlayer->SetTotalKills(0);
 	}
+new CTimer(g_flMoanInterval + (rand() % 5), false, false, [hPlayer]() { return ZR_MoanTimer(pPlayer); });
 }
 
 GAME_EVENT_F(round_end)
